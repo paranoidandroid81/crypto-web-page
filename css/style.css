@@ -7,6 +7,9 @@ h1 {
 hr {
   border-color: #DEDEDE;
 }
+h6 {
+  color: blue;
+}
 .container {
   background-color: purple;
   margin: 25px auto 25px auto;
