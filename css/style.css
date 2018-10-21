@@ -4,11 +4,17 @@ html, body {
 h1 {
   color: white;
 }
+h2 {
+  color: red;
+}
 hr {
   border-color: #DEDEDE;
 }
 h6 {
   color: blue;
+}
+p {
+  color: pink;
 }
 .container {
   background-color: purple;
@@ -18,7 +24,7 @@ h6 {
 }
 .col:nth-of-type(2) {
   background-color: gray;
-  max-width: 20%;
+  max-width: 25%;
 }
 .col {
   border: 1px solid #dedede;

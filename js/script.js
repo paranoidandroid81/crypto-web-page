@@ -3,6 +3,9 @@ $(document).ready(function () {
   $("#polybiusinput").change(function () {
     $("#polybius").val(psquare($("#polybiusinput").val()));
   });
+  $("#caesarinput").change(function () {
+    $("#caesar").val(ccipher($("#caesarinput").val()));
+  });
 });
 
 //helper to find element in 2d Arrays
@@ -14,6 +17,13 @@ function getIndexOfK(arr, k)
       return [i, index];
     }
   }
+}
+
+//helper to get act as modulus operator
+function mod(x, range)
+{
+  if (x < range)            return x;
+  if (x >= range)           return Math.abs(range - x);
 }
 
 //polybius square implementation
@@ -47,4 +57,26 @@ function psquare(d)
     ret_val += (result[1].toString());
   }
   return ret_val;
+}
+
+//caesar cipher implementation with shift of 3
+function ccipher(d)
+{
+  var encMsg = '';
+  var shift = 3;                  //shift alpha 3 letters over
+  for (var i = 0; i < d.length; i++)
+  {
+    var code = d.charCodeAt(i);
+    if ((code >= 65) && (code <= 90))
+    {
+      //uppercase
+      encMsg += String.fromCharCode((mod((code - 65 + shift), 26) + 65));
+    } else if ((code >= 97) && (code <= 122))
+    {
+      encMsg += String.fromCharCode((mod((code - 97 + shift), 26) + 97));
+    } else {
+      encMsg += String.fromCharCode(code);
+    }
+  }
+  return encMsg;
 }
