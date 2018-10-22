@@ -1,3 +1,4 @@
+//script for page
 // Create event handlers when page finishes load
 $(document).ready(function () {
   $("#polybiusinput").change(function () {
