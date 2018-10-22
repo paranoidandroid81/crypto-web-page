@@ -1,0 +1,50 @@
+html, body {
+  background-color: Tan !important;
+}
+h1 {
+  color: white;
+}
+h2 {
+  color: red;
+}
+hr {
+  border-color: #DEDEDE;
+}
+h6 {
+  color: blue;
+}
+p {
+  color: pink;
+}
+.container {
+  background-color: purple;
+  margin: 25px auto 25px auto;
+  border-radius: 10px;
+  border: 2px solid #DEDEDE;
+}
+.col:nth-of-type(2) {
+  background-color: gray;
+  max-width: 25%;
+}
+.col {
+  border: 1px solid #dedede;
+  border-bottom: 0;
+  width: auto;
+  padding: 20px;
+}
+.col:nth-of-type(1) {
+  border-left: 0;
+}
+.col:nth-last-of-type(1) {
+  border-right: 0;
+}
+.row:nth-last-of-type(1) {
+  border-bottom: 0;
+}
+#clicker {
+  background-color: yellow;
+  border: 3px solid #000000;
+}
+#header {
+  padding: 10px;
+}
