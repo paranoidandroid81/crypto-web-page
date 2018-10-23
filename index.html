@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Yantramanav:300" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -10,8 +13,8 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,57 +24,167 @@
 <body>
     <div class="container">
         <div id="header">
-            <h1>An Interactive History of Cryptography</h1>
+            <h1>An Interactive History</h1>
+            <h1>of <span class="blue">Cryptography</span></h1>
             <h2>Michael Korst</h2>
-            <p>Under construction...</p>
         </div>
         <div class="row">
-            <div class="col">
-                <h4>c. 150 BCE</h4>
-                <h4>Polybius Square</h4>
-                <h6>Polybius</h6>
+            <div class="number">
+                <p>1</p>
             </div>
             <div class="col">
-              <p>
-                Background
-              </p>
-                <input type="text" id="polybiusinput" />
-            </div>
-            <div class="col">
-                <textarea rows="2" id="polybius"></textarea>
+                <h3>Date: <span class="detail">c. 150 BCE</span></h3>
+                <h3>Name: <span class="detail">Polybius Square</span></h3>
+                <h3>Author: <span class="detail">Polybius</span></h3>
                 <p>
-                  How it works
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, repellendus. Magnam veritatis,
+                    voluptates quam
+                    eveniet autem eligendi, earum odio maiores incidunt vel esse? Consectetur quas, dolores veritatis
+                    hic
+                    quaerat
+                    tempore.
                 </p>
             </div>
-        </div>
-        <div class="row">
             <div class="col">
-              <h4>c. 50 BCE</h4>
-              <h4>Caesar Cipher</h4>
-              <h6>Author Unkown</h6>
-            </div>
-            <div class="col">
-              <p>
-                Background
-              </p>
-                <input type="text" id="caesarinput" />
-            </div>
-            <div class="col">
-                <textarea rows="2" id="caesar"></textarea>
+                <h3>
+                    How it Works
+                </h3>
                 <p>
-                  How it works
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, repellendus. Magnam veritatis,
+                    voluptates quam eveniet autem eligendi, earum odio maiores incidunt vel esse? Consectetur quas,
+                    dolores
+                    veritatis hic quaerat tempore.
                 </p>
             </div>
+            <div class="col">
+                <div class="cryptotable">
+                    <div class="row">
+                        <div class="col">
+                            <h3>
+                                Input
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <h3>
+                                Output
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="polybiusinput" placeholder="Input" />
+                        </div>
+                        <i id="polybiusbutton" class="fas fa-arrow-circle-right"></i>
+                        <div class="col">
+                            <textarea id="polybius" disabled=true></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <textarea rows="8" class="code" disabled=true>
+function psquare(d) {
+  var result;
+  var ret_val = '';
+  var square = [
+    ['a', 'b', 'c', 'd', 'e'],
+    ['f', 'g', 'h', 'i', 'k'],
+    ['l', 'm', 'n', 'o', 'p'],
+    ['q', 'r', 's', 't', 'u'],
+    ['v', 'w', 'x', 'y', 'z']
+  ];
+  for (var i = 0; i < d.length; i++) {
+    if (/\s/.test(d.charAt(i))) {
+      continue;                 //space character, not encoded
+    }
+    if (d.charAt(i) == 'j') {
+      //i/j index to same space, need to replace j with i for array
+      result = getIndexOfK(square, 'i');
+    } else {
+      result = getIndexOfK(square, d.charAt(i));
+    }
+    result[0]++;            //index of square begins at 1, not 0
+    result[1]++;
+    ret_val += (result[0].toString());
+    ret_val += (result[1].toString());
+  }
+  return ret_val;
+}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row">
-            <div class="col">
-                test
+            <div class="number">
+                <p>2</p>
             </div>
             <div class="col">
-                moar test
+                <h3>Date: <span class="detail">c. 50 BCE</span></h3>
+                <h3>Name: <span class="detail">Caesar Cipher</span></h3>
+                <h3>Author: <span class="detail">Unknown</span></h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, repellendus. Magnam veritatis,
+                    voluptates quam
+                    eveniet autem eligendi, earum odio maiores incidunt vel esse? Consectetur quas, dolores veritatis
+                    hic quaerat
+                    tempore.
+                </p>
             </div>
             <div class="col">
-                test
+                <h3>
+                    How it Works
+                </h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, repellendus. Magnam veritatis,
+                    voluptates quam eveniet autem eligendi, earum odio maiores incidunt vel esse? Consectetur quas,
+                    dolores veritatis hic quaerat tempore.
+                </p>
+            </div>
+            <div class="col">
+                <div class="cryptotable">
+                    <div class="row">
+                        <div class="col">
+                            <h3>
+                                Input
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <h3>
+                                Output
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="caesarinput" placeholder="Input" />
+                        </div>
+                        <i id="caesarbutton" class="fas fa-arrow-circle-right"></i>
+                        <div class="col">
+                            <textarea id="caesar" disabled=true></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <textarea rows="8" class="code" disabled=true>
+function ccipher(d) {
+  var encMsg = '';
+  var shift = 3;                  //shift alpha 3 letters over
+  for (var i = 0; i < d.length; i++) {
+    var code = d.charCodeAt(i);
+    if ((code >= 65) && (code <= 90)) {
+      //uppercase
+      encMsg += String.fromCharCode((mod((code - 65 + shift), 26) + 65));
+    } else if ((code >= 97) && (code <= 122)) {
+      encMsg += String.fromCharCode((mod((code - 97 + shift), 26) + 97));
+    } else {
+      encMsg += String.fromCharCode(code);
+    }
+  }
+  return encMsg;
+}</textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

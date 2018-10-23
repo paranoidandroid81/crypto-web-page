@@ -1,17 +1,14 @@
-//script for page
 // Create event handlers when page finishes load
 $(document).ready(function () {
-  $("#polybiusinput").change(function () {
+  $("#polybiusbutton").click(function () {
     $("#polybius").val(psquare($("#polybiusinput").val()));
   });
-  $("#caesarinput").change(function () {
+  $("#caesarbutton").click(function () {
     $("#caesar").val(ccipher($("#caesarinput").val()));
   });
 });
 
-//helper to find element in 2d Arrays
-function getIndexOfK(arr, k)
-{
+function getIndexOfK(arr, k) {
   for (var i = 0; i < arr.length; i++) {
     var index = arr[i].indexOf(k);
     if (index > -1) {
@@ -21,15 +18,13 @@ function getIndexOfK(arr, k)
 }
 
 //helper to get act as modulus operator
-function mod(x, range)
-{
-  if (x < range)            return x;
-  if (x >= range)           return Math.abs(range - x);
+function mod(x, range) {
+  if (x < range) return x;
+  if (x >= range) return Math.abs(range - x);
 }
 
 //polybius square implementation
-function psquare(d)
-{
+function psquare(d) {
   var result;
   var ret_val = '';
   var square = [
@@ -39,14 +34,11 @@ function psquare(d)
     ['q', 'r', 's', 't', 'u'],
     ['v', 'w', 'x', 'y', 'z']
   ];
-  for (var i = 0; i < d.length; i++)
-  {
-    if (/\s/.test(d.charAt(i)))
-    {
+  for (var i = 0; i < d.length; i++) {
+    if (/\s/.test(d.charAt(i))) {
       continue;                 //space character, not encoded
     }
-    if (d.charAt(i) == 'j')
-    {
+    if (d.charAt(i) == 'j') {
       //i/j index to same space, need to replace j with i for array
       result = getIndexOfK(square, 'i');
     } else {
@@ -60,20 +52,15 @@ function psquare(d)
   return ret_val;
 }
 
-//caesar cipher implementation with shift of 3
-function ccipher(d)
-{
+function ccipher(d) {
   var encMsg = '';
   var shift = 3;                  //shift alpha 3 letters over
-  for (var i = 0; i < d.length; i++)
-  {
+  for (var i = 0; i < d.length; i++) {
     var code = d.charCodeAt(i);
-    if ((code >= 65) && (code <= 90))
-    {
+    if ((code >= 65) && (code <= 90)) {
       //uppercase
       encMsg += String.fromCharCode((mod((code - 65 + shift), 26) + 65));
-    } else if ((code >= 97) && (code <= 122))
-    {
+    } else if ((code >= 97) && (code <= 122)) {
       encMsg += String.fromCharCode((mod((code - 97 + shift), 26) + 97));
     } else {
       encMsg += String.fromCharCode(code);
