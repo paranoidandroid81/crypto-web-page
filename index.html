@@ -36,24 +36,13 @@
                 <h3>Date: <span class="detail">c. 150 BCE</span></h3>
                 <h3>Name: <span class="detail">Polybius Square</span></h3>
                 <h3>Author: <span class="detail">Polybius</span></h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, repellendus. Magnam veritatis,
-                    voluptates quam
-                    eveniet autem eligendi, earum odio maiores incidunt vel esse? Consectetur quas, dolores veritatis
-                    hic
-                    quaerat
-                    tempore.
-                </p>
             </div>
             <div class="col">
                 <h3>
-                    How it Works
+                    Background
                 </h3>
                 <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, repellendus. Magnam veritatis,
-                    voluptates quam eveniet autem eligendi, earum odio maiores incidunt vel esse? Consectetur quas,
-                    dolores
-                    veritatis hic quaerat tempore.
+
                 </p>
             </div>
             <div class="col">
@@ -76,39 +65,17 @@
                         </div>
                         <i id="polybiusbutton" class="fas fa-arrow-circle-right"></i>
                         <div class="col">
-                            <textarea id="polybius" disabled=true></textarea>
+                            <textarea id="polybius"></textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <textarea rows="8" class="code" disabled=true>
-function psquare(d) {
-  var result;
-  var ret_val = '';
-  var square = [
-    ['a', 'b', 'c', 'd', 'e'],
-    ['f', 'g', 'h', 'i', 'k'],
-    ['l', 'm', 'n', 'o', 'p'],
-    ['q', 'r', 's', 't', 'u'],
-    ['v', 'w', 'x', 'y', 'z']
-  ];
-  for (var i = 0; i < d.length; i++) {
-    if (/\s/.test(d.charAt(i))) {
-      continue;                 //space character, not encoded
-    }
-    if (d.charAt(i) == 'j') {
-      //i/j index to same space, need to replace j with i for array
-      result = getIndexOfK(square, 'i');
-    } else {
-      result = getIndexOfK(square, d.charAt(i));
-    }
-    result[0]++;            //index of square begins at 1, not 0
-    result[1]++;
-    ret_val += (result[0].toString());
-    ret_val += (result[1].toString());
-  }
-  return ret_val;
-}</textarea>
+                          <h5>
+                            How it Works
+                          </h5>
+                            <p class="code">
+                              Memes
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -122,22 +89,13 @@ function psquare(d) {
                 <h3>Date: <span class="detail">c. 50 BCE</span></h3>
                 <h3>Name: <span class="detail">Caesar Cipher</span></h3>
                 <h3>Author: <span class="detail">Unknown</span></h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, repellendus. Magnam veritatis,
-                    voluptates quam
-                    eveniet autem eligendi, earum odio maiores incidunt vel esse? Consectetur quas, dolores veritatis
-                    hic quaerat
-                    tempore.
-                </p>
             </div>
             <div class="col">
                 <h3>
-                    How it Works
+                    Background
                 </h3>
                 <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, repellendus. Magnam veritatis,
-                    voluptates quam eveniet autem eligendi, earum odio maiores incidunt vel esse? Consectetur quas,
-                    dolores veritatis hic quaerat tempore.
+
                 </p>
             </div>
             <div class="col">
@@ -160,28 +118,70 @@ function psquare(d) {
                         </div>
                         <i id="caesarbutton" class="fas fa-arrow-circle-right"></i>
                         <div class="col">
-                            <textarea id="caesar" disabled=true></textarea>
+                            <textarea id="caesar"></textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <textarea rows="8" class="code" disabled=true>
-function ccipher(d) {
-  var encMsg = '';
-  var shift = 3;                  //shift alpha 3 letters over
-  for (var i = 0; i < d.length; i++) {
-    var code = d.charCodeAt(i);
-    if ((code >= 65) && (code <= 90)) {
-      //uppercase
-      encMsg += String.fromCharCode((mod((code - 65 + shift), 26) + 65));
-    } else if ((code >= 97) && (code <= 122)) {
-      encMsg += String.fromCharCode((mod((code - 97 + shift), 26) + 97));
-    } else {
-      encMsg += String.fromCharCode(code);
-    }
-  }
-  return encMsg;
-}</textarea>
+                            <h5>
+                              How it Works
+                            </h5>
+                              <p class="code">
+
+                              </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="number">
+                <p>3</p>
+            </div>
+            <div class="col">
+                <h3>Date: <span class="detail">c. 800 CE</span></h3>
+                <h3>Name: <span class="detail">Monoalphabetic Cryptanalysis</span></h3>
+                <h3>Author: <span class="detail">Al-Kindi</span></h3>
+            </div>
+            <div class="col">
+                <h3>
+                    Background
+                </h3>
+                <p>
+
+                </p>
+            </div>
+            <div class="col">
+                <div class="cryptotable">
+                    <div class="row">
+                        <div class="col">
+                            <h3>
+                                Input
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <h3>
+                                Output
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="arabinput" placeholder="Input" />
+                        </div>
+                        <i id="arabbutton" class="fas fa-arrow-circle-right"></i>
+                        <div class="col">
+                            <textarea id="arab"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h5>
+                              How it Works
+                            </h5>
+                              <p class="code">
+
+                              </p>
                         </div>
                     </div>
                 </div>

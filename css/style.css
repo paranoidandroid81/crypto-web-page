@@ -19,6 +19,10 @@ h3 {
   font-size: 24px;
   margin-bottom: 3%;
 }
+h5 {
+  font-size:20px;
+  text-align: center;
+}
 hr {
   border-color: #DEDEDE;
 }
@@ -34,7 +38,7 @@ input, textarea {
 }
 .code {
   width: 100%;
-  height: 100%;
+  height: 60%;
   color: greenyellow;
   background-color: #464547;
   border: 1px solid black;

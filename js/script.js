@@ -6,6 +6,9 @@ $(document).ready(function () {
   $("#caesarbutton").click(function () {
     $("#caesar").val(ccipher($("#caesarinput").val()));
   });
+  $("#arabbutton").click(function () {
+    $("#arab").val(arab_analyze($("#arabinput").val()));
+  });
 });
 
 function getIndexOfK(arr, k) {
@@ -67,4 +70,30 @@ function ccipher(d) {
     }
   }
   return encMsg;
+}
+
+function arab_analyze(d)
+{
+  var freq = {};
+  var result = '';
+  for (var i = 0; i < d.length; i++)
+  {
+    var curr_char = d.charCodeAt(i);
+    if (freq[curr_char])
+    {
+      freq[curr_char]++;
+    } else
+    {
+      freq[curr_char] = 1;
+    }
+  }
+
+  for (var letter in freq)
+  {
+    result += String.fromCharCode(letter);
+    result += ': ';
+    result += freq[letter];
+    result += ", ";
+  }
+  return result;
 }
