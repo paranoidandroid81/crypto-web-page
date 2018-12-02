@@ -9,6 +9,9 @@ $(document).ready(function () {
   $("#arabbutton").click(function () {
     $("#arab").val(arab_analyze($("#arabinput").val()));
   });
+  $("#homobutton").click(function () {
+    $("#homo").val(homo_sub($("#homoinput").val()));
+  });
 });
 
 function getIndexOfK(arr, k) {
@@ -96,4 +99,68 @@ function arab_analyze(d)
     result += ", ";
   }
   return result;
+}
+
+function homo_sub(d)
+{
+  //-1 indicates homophone, must search separately
+  var map = {
+    a: -1, b: 'r', c: 'y',
+    d: 'p', e: -1, f: 'o',
+    g: 'g', h: 'r', i: -1,
+    j: 'm', k: 5, l: 6,
+    m: 7, n: 8, o: -1,
+    p: 'b', q: 'd', r: 'e',
+    s: 'f', t: 'h', u: -1,
+    v: 'j', w: 'k', x: 'l',
+    y: 'n', z: 'q'
+  };
+  var a_count, e_count, i_count, o_count, u_count;          //all vowels are homophones
+  a_count = e_count = i_count = o_count = u_count = 0;        //initialize homphone counts to 0
+  //arrays for homophones
+  var a_alts = ['c', 1, 'u'];
+  var e_alts = ['t', 2, 'v', 'z'];
+  var i_alts = ['a', 3, 'w'];
+  var o_alts = [9, 4, 'x'];
+  var u_alts = ['i', 's'];
+  //split, filter, iterate + map and join
+  d.split('').filter(function(v) {
+    // Does the character exist in the map?
+    return map.hasOwnProperty(v.toLowerCase());
+  }).map(function(v) {
+    // Replace character by value
+    //if -1, is homophonic
+    var curr = v.toLowerCase();
+    if (map[curr] == -1)
+    {
+      var ret_val;
+      switch (curr)
+      {
+        case 'a':
+          ret_val = a_alts[a_count];
+          a_count = (a_count + 1) % a_alts.length;
+          break;
+        case 'e':
+          ret_val = e_alts[e_count];
+          e_count = (e_count + 1) % e_alts.length;
+          break;
+        case 'i':
+          ret_val = i_alts[i_count];
+          i_count = (i_count + 1) % i_alts.length;
+          break;
+        case 'o':
+          ret_val = o_alts[o_count];
+          o_count = (o_count + 1) % o_alts.length;
+          break;
+        case 'u':
+          ret_val = u_alts[u_count];
+          u_count = (u_count + 1) % u_alts.length;
+          break;
+      }
+      return ret_val.toUpperCase();
+    } else
+    {
+      return map[curr].toUpperCase();
+    }
+  }).join();
 }
