@@ -124,7 +124,7 @@ function homo_sub(d)
   var o_alts = [9, 4, 'x'];
   var u_alts = ['i', 's'];
   //split, filter, iterate + map and join
-  d.split('').filter(function(v) {
+  return d.split('').filter(function(v) {
     // Does the character exist in the map?
     return map.hasOwnProperty(v.toLowerCase());
   }).map(function(v) {
@@ -162,5 +162,5 @@ function homo_sub(d)
     {
       return map[curr].toUpperCase();
     }
-  }).join();
+  }).join('');
 }
