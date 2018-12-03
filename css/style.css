@@ -34,11 +34,11 @@ input, textarea {
   width: 100%;
   border-radius: 3px;
   border: 1px solid #dedede;
-  height: 50px;
+  height: 25px;
 }
 .code {
   width: 100%;
-  height: 60%;
+  height: 55%;
   color: greenyellow;
   background-color: #464547;
   border: 1px solid black;
@@ -74,12 +74,12 @@ input, textarea {
   border: 1px solid #dedede;
   width: auto;
   padding: 10px;
-  margin: 10px;
+  margin: 5px;
 }
 .number {
-  width: 3%;
+  width: 4%;
   height: 100%;
-  font-size: 48px;
+  font-size: 32px;
   margin: auto;
   padding-left: 10px;
   color: whitesmoke;

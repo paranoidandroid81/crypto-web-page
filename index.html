@@ -35,14 +35,18 @@
             <div class="col">
                 <h3>Date: <span class="detail">c. 150 BCE</span></h3>
                 <h3>Name: <span class="detail">Polybius Square</span></h3>
-                <h3>Author: <span class="detail">Polybius</span></h3>
+                <h3>Originator(s): <span class="detail">Polybius</span></h3>
             </div>
             <div class="col">
                 <h3>
                     Background
                 </h3>
                 <p>
-
+                    <b>Polybius</b> was an influential Greek writer of the Hellenistic period primarily known for his histories and political theory writings.
+                    One of his most interesting ideas, however, was a framework for an early cryptographic method now known as the <b>Polybius square</b>.
+                    It was initially conceived to aid in telegraphy: the transmission of messages over long distances, with Polybius suggesting the codes could
+                    be signalled by holding up torches. His ideas of encoding, while primitive, have been used as "knock codes" by Stalinist prisoners attempting
+                    to communicate through walls. They've also been suggested as useful in steganography.
                 </p>
             </div>
             <div class="col">
@@ -73,8 +77,14 @@
                           <h5>
                             How it Works
                           </h5>
+                          <img src="./image/polybius_square.png" alt="polybius" style="width:100px;height:100px;">
+                          <br>
+                          </br>
                             <p class="code">
-                              Memes
+                              This algorithm uses a 5x5 square to encode the text. Essentially, the letters are each stored in one cell of the square.
+                              The corresponding encoding of a given letter is equal to the row number of the letter concatenated with the column number.
+                              For example, e = 15 and v = 51. Because of the size 25 square with a size 26 alphabet, i and j share a cell in their encoding.
+                              The square used is pictured above.
                             </p>
                         </div>
                     </div>
@@ -88,14 +98,19 @@
             <div class="col">
                 <h3>Date: <span class="detail">c. 50 BCE</span></h3>
                 <h3>Name: <span class="detail">Caesar Cipher</span></h3>
-                <h3>Author: <span class="detail">Unknown</span></h3>
+                <h3>Originator(s): <span class="detail">Unknown</span></h3>
             </div>
             <div class="col">
                 <h3>
                     Background
                 </h3>
                 <p>
-
+                  Although Polybius' idea was certainly interesting, it was likely never used in practice. The first substitution cipher known to be used, meaning
+                  a method of encoding where each letter is entirely replaced based on some rule, was the <b>Caesar Cipher</b>. This cipher was employed by the most famous Roman,
+                  <b>Julius Caesar</b>, to communicate with his generals during the Gallic Wars. Though the cipher was extremely basic by our standards, in Caesar's time it could
+                  have obscured his messages sufficiently to confuse his mostly illiterate adversaries. As of recently, the Caesar Cipher has been used for the ROT13 algorithm,
+                  an extremely simple method of encryption meant mostly to encode jokes and non-critical information on the internet. It's also been used unsuccessfully by
+                  Mafia members to communicate securely.
                 </p>
             </div>
             <div class="col">
@@ -127,7 +142,9 @@
                               How it Works
                             </h5>
                               <p class="code">
-
+                                The encryption technique is accomplished by simply replacing each letter of text with a letter some fixed number of positions down
+                                the alphabet from the initial position. The number of positions is known as the "shift". For this implementation of the algorithm, a
+                                right shift of 3 is used. So, for example, the letter 'c' would be encoded to 'f' and a 'y' to 'b'.
                               </p>
                         </div>
                     </div>
@@ -141,14 +158,19 @@
             <div class="col">
                 <h3>Date: <span class="detail">c. 800 CE</span></h3>
                 <h3>Name: <span class="detail">Monoalphabetic Cryptanalysis</span></h3>
-                <h3>Author: <span class="detail">Al-Kindi</span></h3>
+                <h3>Originator(s): <span class="detail">Al-Kindi</span></h3>
             </div>
             <div class="col">
                 <h3>
                     Background
                 </h3>
                 <p>
-
+                  The encryption algorithms discussed thus far are classified as monoalphabetic substitution ciphers, meaning the technique of replacement
+                  remains the same throughout the message. While relatively advanced for their time, these ciphers contained some blatant weaknesses; these weaknesses
+                  were exploited by advances during the Islamic Golden Age. <b>Al-Kindi</b>, an Arab polymath during this time period, created an ingenious method analyzing these
+                  kinds of ciphers. His technique represented a pivotal moment in the area of cryptanalyis: the field dedicated to analyzing and breaking encrypted messages.
+                  His writings on <b>frequency analysis</b> led to the widespread use of these techniques in the Renaissance. Today, computer software is written to carry out this variety
+                  of cryptanalysis in seconds, breaking most of the "classical ciphers" quite easily.
                 </p>
             </div>
             <div class="col">
@@ -180,7 +202,11 @@
                               How it Works
                             </h5>
                               <p class="code">
-
+                                Monoalphabetic cryptanalysis is based around the idea of frequency calculations. Quite simply, you count up each occurrence
+                                of each letter in a phrase. From there, you can compare the relative percentages of each occurrence to each occurrence of a letter
+                                within the original langage of the message. For example, if the cipher text contains 22% of the letter 'u' and the English language
+                                has a 22% occurrence rate of 'e' in common words, one could reasonably replace the 'u' with the 'e' and see if the decoding matches.
+                                The sample program provided simply prints out the occurrences of each letter in the input phrase.
                               </p>
                         </div>
                     </div>
@@ -194,14 +220,19 @@
             <div class="col">
                 <h3>Date: <span class="detail">1401</span></h3>
                 <h3>Name: <span class="detail">Homophonic Substitution Cipher</span></h3>
-                <h3>Author: <span class="detail">Francesco I Gonzaga, Duke of Mantua</span></h3>
+                <h3>Originator(s): <span class="detail">Francesco I Gonzaga, Duke of Mantua</span></h3>
             </div>
             <div class="col">
                 <h3>
                     Background
                 </h3>
                 <p>
-
+                  The Middle Ages, unfortunately, represented a period of stagnation in cryptography. The Classical and Arabic methods were still known and used,
+                  but no significant advances in encoding practices were made for many years. With the aforementioned weaknesses in monoalphabetic ciphers exploited
+                  by cryptanalysis, this made the secure transmission of messages problematic. The first major advance since the time of Al-Kindi came with the advent
+                  of <b>homophonic ciphers</b>. Homophonic substitution allows for any given character to replaced with any number of alternative characters. The first instance
+                  of this encryption technique was seen in a correspondence between the <b>Duke of Mantua</b> with an associate. This method actually took Arabic frequency analysis
+                  into account and used it cleverly in the encoding process. The homophonic technique became a standard for government cryptography for most of the Renaissance.
                 </p>
             </div>
             <div class="col">
@@ -232,8 +263,385 @@
                           <h5>
                             How it Works
                           </h5>
+                          <img src="./image/homo_key.png" alt="homo" style="width:300px;height:150px;">
+                          <br>
+                        </br>
                             <p class="code">
-                              Memes
+                              This particular homophonic substitution, as mentioned above, accounts for the relative frequency of each letter in the English language.
+                              It essentially assumes that vowels will be the most commonly used, and provides multiple replacements for each vowel. In our model, each
+                              time a vowel is meant to be encoded, its next possible choice for the cipher is chosen. In the simplest variety, one can just choose the
+                              homophonic replacement in order of listing. However, to create even more security for the most frequent letters, you could randomly select an
+                              option and use it for encoding. The table used to encode the text in our example is shown above.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="number">
+                <p>5</p>
+            </div>
+            <div class="col">
+                <h3>Date: <span class="detail">early 1400s</span></h3>
+                <h3>Name: <span class="detail">Voynich Manuscript</span></h3>
+                <h3>Originator(s): <span class="detail">Unknown</span></h3>
+            </div>
+            <div class="col">
+                <h3>
+                    Background
+                </h3>
+                <p>
+                  The <b>Voynich Manuscript</b> is interesting in that we do not know which, if any, cryptographic principle the document follows. Originally discovered in 1912
+                  by an antiquarian book dealer, the book is hand-written in a unknown writing system. It was first thought to be written by a 12th century monk, but has now
+                  been tracked to within the 15th century by carbon dating. The manuscript is filled with both writing and strange illustrations, and is thought to possibly
+                  be an early modern medical text. However, the script is still entirely undeciphered. Some theories propose it to be an esoteric cipher based on letters or even
+                  a codebook, some say it might be a completely constructed language, still others state it's a complete hoax. In recent years, AI has been used in an attempt to decode
+                  the text with still minimal success. The Voynich Manuscript serves as a fascinating example of a cryptographic anomaly.
+                </p>
+            </div>
+            <div class="col">
+                <div class="cryptotable">
+                    <div class="row">
+                        <div class="col">
+                            <h3>
+                                Example
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <img src="./image/Voynich-manuscript3.png" alt="voynich" style="width:300px;height:300px;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                          <h5>
+                            How it Works
+                          </h5>
+                            <p class="code">
+                              As I've previously mentioned, no one is sure how it works. One of the recent claims, aided by AI, is that the original language is Hebrew,
+                              encoded using alphabetically ordered anagrams. However, this claim has been widely disputed by both Medieval history and Hebrew experts.
+                              Maybe one of the most compelling hypotheses is that the book is in fact written in a natural language; that is, some naturally evolved lanugage
+                              that just hasn't been discovered by a wider audience of yet, written in an invented phonetic language. The main support to this claim is the similarities
+                              found in word structure to some East Asian languages. Whatever the truth may be, most scholars agree it is too homogeneously constructed to be a hoax.
+                              Above is an example of the alien language in the manuscript.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="number">
+                <p>6</p>
+            </div>
+            <div class="col">
+                <h3>Date: <span class="detail">c. 1499</span></h3>
+                <h3>Name: <span class="detail">Steganography</span></h3>
+                <h3>Originator(s): <span class="detail">Johannes Trithemius</span></h3>
+            </div>
+            <div class="col">
+                <h3>
+                    Background
+                </h3>
+                <p>
+                  So far, the techniques we've covered have been converting text to text; encoded text, but nevertheless text. What if we could use something other than text
+                  to hold our secret message? <b>Johannes Trithemius</b>, a German polymath, wrote prolifically on cryptography, but perhaps his most important work was
+                  <i>Steganographia</i>. Ostensibly, the three volume work is about using magic to communicate with spirits; for this reason, the book was banned by the Catholic
+                  church for some time. The first two books in the volume are fairly conventional, both explaining different encryption techniques. The last book, however, is much
+                  more obscure and for many years was thought to be a strange astrological treatise with occult qualities. It was only in the late 90s, almost 500 years later, that the
+                  "magical" elements were actually decoded as covertexts for more cryptographic content. The concealing of these messages within a seemingly unrelated text is probably
+                  the first example of a practice known as <b>steganography</b>, a term obviously coined by Trithemius in this landmark work. Today, steganography is used in much more
+                  advanced contexts like encoding bits inside a picture or for metadata in printing documents. Trithemius was truly a pioneer with this important cryptographic technique.
+                </p>
+            </div>
+            <div class="col">
+                <div class="cryptotable">
+                    <div class="row">
+                        <div class="col">
+                            <h3>
+                                Example
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <img src="./image/Chart_in_the_hand_of_Dr_John_Dee._Steganographiae.png" alt="Steg chart" style="width:300px;height:300px;">
+                            <br>
+                          </br>
+                        </div>
+                        <div class="col">
+                            <img src="./image/Steganography_in_the_hand_of_John_Dee.png" alt="Steg nums" style="width:300px;height:300px;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                          <h5>
+                            How it Works
+                          </h5>
+                            <p class="code">
+                              The book used both relatively normal encryption techniques and steganography to hide its messages. Books I and II generally consist of letters that,
+                              in plaintext, seem to be invoking angelic help. However, with a release of a decryption key shortly after publication, the letters were found to have
+                              concealed messages within the words. These were encrypted both with substitution ciphers and steganography. Book III, however, had no such decryption key and
+                              thus appeared to mostly contain astrological charts corresponding to different "spirits", as seen in the picture above. Only as of recently were these charts found
+                              to actually contain encrypted messages. Trithemius used 28 different versions of the alphabet, each corresponding to the spirits. The second picture shows the process
+                              of decoding one of the first 2 books.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="number">
+                <p>7</p>
+            </div>
+            <div class="col">
+                <h3>Date: <span class="detail">1553</span></h3>
+                <h3>Name: <span class="detail">Vigenère Cipher</span></h3>
+                <h3>Originator(s): <span class="detail">Giovan Battista Bellaso and Blaise de Vigenère</span></h3>
+            </div>
+            <div class="col">
+                <h3>
+                    Background
+                </h3>
+                <p>
+                  One of the main problems with all of our textual encryption techniques thus far have been their vulnerability to frequency analysis. Even in homophonic substitution,
+                  it is still possible to break the encryption with a large enough encoded text to analyze. The notion of a <b>polyalphabetic cipher</b>, an encryption technique using
+                  multiple alphabets throughout the encoding, was first proposed by <b>Leon Battista Alberti</b>. He proposed using a cipher disk to randomly an alphabet for each letter,
+                  with the physical disk presenting an obvious problem when communicating covertly over long distances. The next major step was actually by Trithemius, who suggested switching
+                  the alphabet iteratively for each letter in the message. His cipher, however, was trivial to break and needed improvement. <b>Giovan Battista Bellaso</b> suggested a "keyword"
+                  that provides the guide for the alphabet shift to use at each letter. Probably the most refined version of this technique was made by <b>Blaise de Vigenère</b>, who suggested
+                  a process called "key scheduling" to choose which key is used. This polyalphabetic technique became the standard encryption method for 100s of years, and even as of more recently
+                  the notion of key scheduling as been used in the Data Encryption Standard (DES), an advanced cryptographic algorithm that was at one time employed by the US government.
+                </p>
+            </div>
+            <div class="col">
+                <div class="cryptotable">
+                  <div class="row">
+                      <div class="col">
+                          <h5>
+                              Input Text
+                          </h5>
+                      </div>
+                      <div class="col">
+                          <h5>
+                              Key (no spaces)
+                          </h5>
+                      </div>
+                      <div class="col">
+                          <h5>
+                              Output
+                          </h5>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <input type="text" id="viginput" placeholder="Input" />
+                      </div>
+                      <div class="col">
+                          <input type="text" id="vigkey" placeholder="Input" />
+                      </div>
+                      <i id="vigbutton" class="fas fa-arrow-circle-right"></i>
+                      <div class="col">
+                          <textarea id="vig"></textarea>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                        <h5>
+                          How it Works
+                        </h5>
+                          <img src="./image/vig_square.png" alt="vignere" style="width:300px;height:300px;">
+                          <br> </br>
+                          <p class="code">
+                            Our polyalphabetic method works using a keyword to decide the alphabet. First, the key is repeated as many times as necessary to fit
+                            the length of the plaintext. From there, for each letter in the text, we use the corresponding index of the key to decide which alphabet
+                            to use for encoding. The table pictured above shows the alphabet to use for each key letter. For example, if letter 1 of the key is 'L' and letter
+                            1 of the text is 'B', the equivalent cipher output would be 'M'. The output of this cipher technique is extremely resistant to traditional cryptanalysis.
+                          </p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="number">
+                <p>8</p>
+            </div>
+            <div class="col">
+                <h3>Date: <span class="detail">1586</span></h3>
+                <h3>Name: <span class="detail">Babington Plot</span></h3>
+                <h3>Originator(s): <span class="detail">Anthony Babington and Mary, Queen of Scots</span></h3>
+            </div>
+            <div class="col">
+                <h3>
+                    Background
+                </h3>
+                <p>
+                  Most of what we've covered so far has been theoretical; i.e. techniques for encryption, but not necessarily implementations. Perhaps the most famous instance
+                  of cryptography actually being employed in this time period was in the <b>Babington Plot</b>. In the late 1500s, Elizabeth I held the crown of England, but there
+                  were some opposed to her reign. These conspirators, led by <b>Anthony Babington</b>, looked to assassinate Elizabeth and install <b>Mary</b>, the Queen of Scotland, in her
+                  place. To communicate with Mary, however, Babington needed security: both physical security to smuggle the letters, and cryptography to hide the messages. Unfortunately for
+                  Babington and Mary, their letters were intercepted by loyalists from the beginning. <b>Thomas Phelippes</b>, a cryptanalyst loyal to Elizabeth, was able to break the cipher
+                  quickly and discovered their plan. Cleverly, he sent a falsified message to Babington, asking to provide the names of his conspirators. This led the capture and execution
+                  of Mary, Babington, and many others. The Babington Plot, though unsuccessful, was an example of the power of cryptography in world affairs.
+                </p>
+            </div>
+            <div class="col">
+                <div class="cryptotable">
+                    <div class="row">
+                        <div class="col">
+                            <h3>
+                                Example
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <img src="./image/Babington_postscript.jpg" alt="Bab postscript" style="width:300px;height:300px;">
+                            <br>
+                          </br>
+                        </div>
+                        <div class="col">
+                            <img src="./image/Mary-cipher-code.jpg" alt="Bab cipher" style="width:300px;height:300px;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                          <h5>
+                            How it Works
+                          </h5>
+                            <p class="code">
+                              The cipher used in the plot was a special kind of homophonic cipher, called a <b>nomenclator cipher</b>. This variety of cipher combines
+                              a homophonic substitution table with a codebook. A codebook translates commonly used words or phrases to a single symbol. This makes the cipher
+                              much harder to crack than an ordinary homophonic cipher, and provides an encryption language customized to the operation. The second picture
+                              shows the code table used by Mary, having both replacements for the normal alphabet and certain phrases. However, Phelippes was still able to decipher
+                              the language with a combination of frequency analysis for the letters and simple inference for the phrases. The 1st image contains the forged postscript
+                              Phelippes added to Mary's letter to Babington, asking for the names of the conspirators. Since he had completely deciphered the language, Babington was
+                              unable to discern the forgery and thus incriminated himself directly to the loyalists.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="number">
+                <p>9</p>
+            </div>
+            <div class="col">
+                <h3>Date: <span class="detail">early to mid 17th century</span></h3>
+                <h3>Name: <span class="detail">Cryptographic Commitment Scheme</span></h3>
+                <h3>Originator(s): <span class="detail">Galileo Galilei, Christiaan Huygens and Other Astronomers</span></h3>
+            </div>
+            <div class="col">
+                <h3>
+                    Background
+                </h3>
+                <p>
+                  There are many algorithms to encrypt and decrypt a message, but a different appplication for cryptography is to actually commit to some information
+                  publically without revealing the information. The idea is if you can publish some encoded information, and later show a way to decode that info, the decoded
+                  information must have been known when its encrypted version was published. Early astronomy was a very competitive practice, as astronomers wanted to hide their
+                  findings while receiving recognition for discoveries. <b>Galileo</b>, when discovering the rings of Saturn, published a scrambled anagram of his results before
+                  he was ready to fully publish his findings. This primitive <b>cryptographic commitment scheme</b> became common for astronomers, as it was mostly secure while also
+                  putting a sort of "timestamp" on their findings. <b>Christiaan Huygens</b> also used this anagram technique for his findings on Saturn. Today, commitment schemes
+                  using much more complex algorithms are extremely common and find use everywhere from prediction markets to cryptocurrencies. These astronomers, though using extremely
+                  basic encryption technologies, were pioneers in the use of these types of schemes.
+                </p>
+            </div>
+            <div class="col">
+                <div class="cryptotable">
+                    <div class="row">
+                        <div class="col">
+                            <h3>
+                                Example
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <img src="./image/hugens_commit.jpg" alt="huygens commit" style="width:300px;height:500px;">
+                            <br>
+                          </br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                          <h5>
+                            How it Works
+                          </h5>
+                            <p class="code">
+                              As I mentioned, the commitment scheme used by these astronomers generally used anagrams. Anagrams worked well for their purposes as 1) they were
+                              easy to construct, and 2) they were virtually impossible to decode. An astronomer would write our their commitment phrase in Latin (the scientific
+                              language of the day), re-arrange the letters in some arbitrary order, and then publish the scrambled message. Then, when they want to reveal their discovery,
+                              they can provide the original text and anyone will be able to verify the anagram as valid. The example above shows Huygen's published commitment. The anagram,
+                              written in alphabetical order, is "aaaaaaacccccdeeeeeghiiiiiiillllmmnnnnnnnnnooooppqrrstttttuuuuu", which would appear as gibberish to any third party. When
+                              arranged correctly, however, the phrase is "annuto cingitur, tenui, plano, nusquam coherente, ad eclipticam inclinato", Latin for
+                              "it is encircled by a ring, thin, plane, nowhere attached inclined to the ecliptic." We can see the ease with which the message is hidden while still providing
+                              a proof of existence.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="number">
+                <p>10</p>
+            </div>
+            <div class="col">
+                <h3>Date: <span class="detail">1932</span></h3>
+                <h3>Name: <span class="detail">Enigma Cipher Cryptanalysis and Beyond</span></h3>
+                <h3>Originator(s): <span class="detail">Polish Cipher Bureau, Alan Turing</span></h3>
+            </div>
+            <div class="col">
+                <h3>
+                    Background
+                </h3>
+                <p>
+                  In the interim between the time of Galileo and WWII, most of the improvements to cryptography were only incremental. Perhaps the most prominent was an improvement in
+                  polyalphabetic cryptanalysis by <b>Charles Babbage</b>, but even that advance didn't have wide implications for the time. The most important historical event in
+                  cryptography since Galileo, and something indicative of the technological revolution to come, was the breaking of the German <b>Enigma Cipher</b> during WWII. The Enigma
+                  machine was a tool designed by the Germans to transmit messages securely during wartime. It used the most advanced cryptography of its time and used a rotor system with
+                  multiple permutations to encrypt. Using knowledge of both the wiring of the machines and assumed flaws <b>Marian Rejewski</b>, a cryptanalyst at the <b>Polish Cipher Bureau</b>,
+                  was able to break the machines. The British cryptanalyst <b>Alan Turing</b>, used Rejewski's research to improve on the techniques and automate the decryption on a larger
+                  scale with a device called the <i>bombe</i>. Thes developments were considered pivotal in ensuring the Allied victory; more importantly, it signalled the beginning of
+                  the Computing Age, led by Alan Turing. <br> </br>While the bombe was not a computer in the traditional sense, Turing would at one point design the first theoretical model for a
+                  computer, called a Turing machine, create some of the first computers, and later even write on Artificial Intelligence. It's impossible to state how much Turing meant
+                  for the revolution to come; he is truly the father of modern computing. Today, cryptography is a vital part of our technological society that often goes unappreciated.
+                  Whenever we enter a password or go to a website, there are advanced algorithms encrypting our data and securing us from malicious parties. With the advanced math and
+                  computer science principles that go into cryptographic techniques today, they look much different from the design of the earlier methods. However, on the lowest level,
+                  the same principles of security that everyone from Vigenère to Turing used are just as relevant and necessary.
+                </p>
+            </div>
+            <div class="col">
+                <div class="cryptotable">
+                    <div class="row">
+                        <div class="col">
+                            <h3>
+                                Example
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <img src="./image/enigma_machine.jpg" alt="enigma machine" style="width:300px;height:300px;">
+                            <br>
+                          </br>
+                        </div>
+                        <div class="col">
+                            <img src="./image/enigma_bombe.jpg" alt="enigma bombe" style="width:300px;height:300px;">
+                            <br>
+                          </br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                          <h5>
+                            How it Works
+                          </h5>
+                            <p class="code">
+                              The Enigma cipher itself was based on a set of rotors used to scramble the data. Basically, as seen in the 1st picture, a person would enter the phrase using
+                              the keyboard, the rotors would rotate creating an electrical circuit through contacts on their edges. A rotor by itself only performs a simple substitution
+                              cipher. The security of the machine came from using multiple rotors in series to create a polyalphabetic cipher. If using 3 rotors, the machine could have
+                               17,576 possible arrangements of the rotors (26 x 26 x 26). An additional layer of security added in WW2 was a plugboard in back, allowing the swapping of
+                               individual letters on the keyboard. To crack the machine, Rejewski initially used German mistakes in procedure and his own theoretical math knowledge to work
+                               out the wiring of the machine. However, German improvements in response made some of the Polish methods of cryptanalyis obsolete. Turing, working off of the Polish
+                               methods, began designing the bombe for decryption. The machine essentially simulated the action of several Enigma machines wired together, as seen in the second picture. Multiple sets of rotors
+                               can be run in tandem, allowing for the testing of different hypotheses simultaneously. These machines exploited the idea that a certain piece of text was likely to
+                               be present in most German transmissions. These machines drastically improved the quality and speed of Allied decryption.
                             </p>
                         </div>
                     </div>

@@ -12,6 +12,9 @@ $(document).ready(function () {
   $("#homobutton").click(function () {
     $("#homo").val(homo_sub($("#homoinput").val()));
   });
+  $("#vigbutton").click(function () {
+    $("#vig").val(vig_cipher($("#viginput").val(), $("#vigkey").val()));
+  });
 });
 
 function getIndexOfK(arr, k) {
@@ -23,10 +26,22 @@ function getIndexOfK(arr, k) {
   }
 }
 
-//helper to get act as modulus operator
-function mod(x, range) {
-  if (x < range) return x;
-  if (x >= range) return Math.abs(range - x);
+//helper to get alpha index of key char for vignere
+function get_alpha_index(code)
+{
+  var result;
+  if ((code >= 65) && (code <= 90)) {
+    //uppercase
+    result = (code - 65) % 26;
+  } else if ((code >= 97) && (code <= 122)) {
+    //lowercase
+    result = (code - 97) % 26;
+  } else {
+    //not letter (shouldn't happen)
+    //just return 0 (no shift)
+    result = 0;
+  }
+  return result;
 }
 
 //polybius square implementation
@@ -65,9 +80,9 @@ function ccipher(d) {
     var code = d.charCodeAt(i);
     if ((code >= 65) && (code <= 90)) {
       //uppercase
-      encMsg += String.fromCharCode((mod((code - 65 + shift), 26) + 65));
+      encMsg += String.fromCharCode(((code - 65 + shift) % 26) + 65);
     } else if ((code >= 97) && (code <= 122)) {
-      encMsg += String.fromCharCode((mod((code - 97 + shift), 26) + 97));
+      encMsg += String.fromCharCode(((code - 97 + shift) % 26) + 97);
     } else {
       encMsg += String.fromCharCode(code);
     }
@@ -105,23 +120,23 @@ function homo_sub(d)
 {
   //-1 indicates homophone, must search separately
   var map = {
-    a: -1, b: 'r', c: 'y',
-    d: 'p', e: -1, f: 'o',
-    g: 'g', h: 'r', i: -1,
-    j: 'm', k: 5, l: 6,
-    m: 7, n: 8, o: -1,
+    a: '-1', b: 'r', c: 'y',
+    d: 'p', e: '-1', f: 'o',
+    g: 'g', h: 'r', i: '-1',
+    j: 'm', k: '5', l: '6',
+    m: '7', n: '8', o: '-1',
     p: 'b', q: 'd', r: 'e',
-    s: 'f', t: 'h', u: -1,
+    s: 'f', t: 'h', u: '-1',
     v: 'j', w: 'k', x: 'l',
     y: 'n', z: 'q'
   };
   var a_count, e_count, i_count, o_count, u_count;          //all vowels are homophones
   a_count = e_count = i_count = o_count = u_count = 0;        //initialize homphone counts to 0
   //arrays for homophones
-  var a_alts = ['c', 1, 'u'];
-  var e_alts = ['t', 2, 'v', 'z'];
-  var i_alts = ['a', 3, 'w'];
-  var o_alts = [9, 4, 'x'];
+  var a_alts = ['c', '1', 'u'];
+  var e_alts = ['t', '2', 'v', 'z'];
+  var i_alts = ['a', '3', 'w'];
+  var o_alts = ['9', '4', 'x'];
   var u_alts = ['i', 's'];
   //split, filter, iterate + map and join
   return d.split('').filter(function(v) {
@@ -131,7 +146,7 @@ function homo_sub(d)
     // Replace character by value
     //if -1, is homophonic
     var curr = v.toLowerCase();
-    if (map[curr] == -1)
+    if (map[curr] == '-1')
     {
       var ret_val;
       switch (curr)
@@ -162,5 +177,32 @@ function homo_sub(d)
     {
       return map[curr].toUpperCase();
     }
-  }).join('');
+  }).join("");
+}
+
+function vig_cipher(input, key)
+{
+  var result = '';
+  var key_idx = 0;          //for iterating thru key
+  var shift;
+  //go thru text to encrypt, using key to encode
+  for (var i = 0; i < input.length; i++)
+  {
+    //use ascii values to get encoded string
+    var code = input.charCodeAt(i);
+    shift = get_alpha_index(key.charCodeAt(key_idx));
+    if ((code >= 65) && (code <= 90)) {
+      //uppercase
+      result += String.fromCharCode(((code - 65 + shift) % 26) + 65);
+      key_idx = (key_idx + 1) % key.length;
+    } else if ((code >= 97) && (code <= 122)) {
+      //lowercase
+      result += String.fromCharCode(((code - 97 + shift) % 26) + 97);
+      key_idx = (key_idx + 1) % key.length;
+    } else {
+      //not letter
+      result += input.charAt(i);
+    }
+  }
+  return result;
 }
